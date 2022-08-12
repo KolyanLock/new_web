@@ -1,0 +1,12 @@
+{% extends 'web_lib/main.html' %}
+{% load static %}
+<!doctype html>
+    {% block content %}
+        <div class="container">
+            <title>About</title>
+            <h1>About</h1>
+            <p>Hello!</p>
+            <img src={% static 'web/imgs/Isabella_prog.png' %} alt="Isa_and_books" onclick="isAbout()">
+            <script src={% static 'web/js/web.js' %}></script>
+        </div>
+    {% endblock %}

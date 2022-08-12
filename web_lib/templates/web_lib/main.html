@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href={% static "web_lib/css/main.css" %}>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>WEB_LIB</title>
+</head>
+<body>
+    {% include "web_lib/navbar.html" %}
+
+
+
+    {% block content %}
+        <div class="container">
+            <h1>Welcome to WEB LIB</h1>
+            <br>
+            <p>Это фейковая электронная библиотека</p>
+            <br>
+            <form action={% url 'authors' %} method="get">
+{#                <label for="author_uuid">Author UUID</label>#}
+{#                <input type="text" name="author_uuid" id="author_uuid">#}
+                {{ form_search }}
+                <input type="submit" value="Поиск">
+            </form>
+            <br>
+
+            <form action={% url 'authors' %} method="post">
+              {% csrf_token %}
+{#              <div class="form-group">#}
+{#                <label for="inputName">Name</label>#}
+{#                <input type="text" class="form-control" name="name" id="inputName" aria-describedby="emailHelp" placeholder="Enter name">#}
+{#              </div>#}
+{#              <div class="form-group">#}
+{#                <label for="inputAge">Age</label>#}
+{#                <input type="number" class="form-control" name="age" id="inputAge" placeholder="Enter age">#}
+{#              </div>#}
+{#              <div class="form-group">#}
+{#                <label for="InputEmail">Email</label>#}
+{#                <input type="email" class="form-control" name="email" id="InputEmail" placeholder="Enter email">#}
+{#                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
+{#              </div>#}
+                {{ form_post }}
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+
+            <br><br>
+
+            <a href={% url 'about'%}>About</a>
+        </div>
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

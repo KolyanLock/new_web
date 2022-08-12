@@ -1,0 +1,12 @@
+{% extends 'web_lib/main.html' %}
+
+{% block content %}
+    <div class="container">
+    <h1>Author</h1>
+        <p>uuid: {{ author.pk }}</p>
+        <p>name: {{ author.name }}</p>
+        <p>age: {{ author.age }}</p>
+        <p>email: {{ author.email }}</p>
+        <p>amount of books: {{ books_amount }}</p>
+    </div>
+{% endblock %}

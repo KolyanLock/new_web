@@ -1,0 +1,36 @@
+[
+  {
+    "model": "web_lib_Author",
+    "pk": "298c26eb-155e-4315-a5a0-ded90aeef273",
+    "fields": {
+      "name": "Окем",
+      "age": 25,
+      "email": "okem@mail.ru",
+      "lit_typ": "b"
+    }
+  },
+
+  {
+    "model": "web_lib_Book",
+    "pk": 1,
+    "fields": {
+      "title": "Первая книга",
+      "description": "Это первая книга",
+      "page_num": 20,
+      "published": "2012-08-02 19:47:04.257919+00:00",
+      "author": "298c26eb-155e-4315-a5a0-ded90aeef273"
+    }
+  },
+
+  {
+    "model": "web_lib_Book",
+    "pk": 1,
+    "fields": {
+      "title": "Вторая книга",
+      "description": "Это вторая книга",
+      "page_num": 30,
+      "published": "2013-08-02 19:47:04.257919+00:00",
+      "author": "298c26eb-155e-4315-a5a0-ded90aeef273"
+    }
+  }
+]

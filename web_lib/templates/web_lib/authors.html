@@ -1,0 +1,33 @@
+{% extends 'web_lib/main.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Authors</h1>
+        {% if authors %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">PK</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for author in authors %}
+                        <tr>
+                            <th scope="row">
+                                <a href={% url 'author_id' author.pk %}>{{ author.pk }}</a>
+                            </th>
+                                <td>{{ author.name }}</td>
+                                <td>{{ author.age }}</td>
+                                <td>{{ author.email }}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No authors</p>
+        {% endif %}
+    </div>
+{% endblock %}
