@@ -1,20 +1,43 @@
 {% extends 'web_lib/main.html' %}
 
 {% block content %}
-    <div class="container">
-    <h1>Books</h1>
+    <div class="container card card-block">
+        <h1>Books</h1>
+        <a class="btn btn-primary btn-sn btn-block" href={% url 'create_book' %}>Добавить книгу</a>
+
         {% if books %}
-            {% for book in books %}
-                <p>title: {{ book.title }}</p>
-                <p>description: {{ book.description }}</p>
-                <p>page numbers: {{ book.page_num }}</p>
-                <p>author: {{ book.author.name }}</p>
-                <p>date: {{ book.published|date:'d. m. Y' }}</p>
-                <hr>
-            {% endfor %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">PK</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Описание</th>
+                        <th scope="col">Страниц</th>
+                        <th scope="col">Автор</th>
+                        <th scope="col">Опубликована</th>
+                        <th scope="col">Изменить</th>
+                        <th scope="col">Удалить</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <th scope="row">
+                                <a href="">{{ book.pk }}</a>
+                            </th>
+                                <td>{{ book.title }}</td>
+                                <td>{{ book.description }}</td>
+                                <td>{{ book.page_num }}</td>
+                                <td>{{ book.author }}</td>
+                                <td>{{ book.published|date:'d. m. Y' }}</td>
+                                <td><a class="btn btn-sn btn-info" href={% url 'update_book' book.pk %}>Изменить</a></td>
+                                <td><a class="btn btn-sn btn-danger" href={% url 'delete_book' book.pk %}>Удалить</a></td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         {% else %}
-            <p>No books</p>
+            <p>Нет книг</p>
         {% endif %}
-        {{ books }}
     </div>
 {% endblock %}

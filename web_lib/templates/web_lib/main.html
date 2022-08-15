@@ -21,30 +21,10 @@
             <br>
             <p>Это фейковая электронная библиотека</p>
             <br>
-            <form action={% url 'authors' %} method="get">
-{#                <label for="author_uuid">Author UUID</label>#}
-{#                <input type="text" name="author_uuid" id="author_uuid">#}
-                {{ form_search }}
-                <input type="submit" value="Поиск">
-            </form>
-            <br>
 
-            <form action={% url 'authors' %} method="post">
-              {% csrf_token %}
-{#              <div class="form-group">#}
-{#                <label for="inputName">Name</label>#}
-{#                <input type="text" class="form-control" name="name" id="inputName" aria-describedby="emailHelp" placeholder="Enter name">#}
-{#              </div>#}
-{#              <div class="form-group">#}
-{#                <label for="inputAge">Age</label>#}
-{#                <input type="number" class="form-control" name="age" id="inputAge" placeholder="Enter age">#}
-{#              </div>#}
-{#              <div class="form-group">#}
-{#                <label for="InputEmail">Email</label>#}
-{#                <input type="email" class="form-control" name="email" id="InputEmail" placeholder="Enter email">#}
-{#                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
-{#              </div>#}
-                {{ form_post }}
+            <form action="">
+                {% csrf_token %}
+                {{ book_form.as_p }}
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
 

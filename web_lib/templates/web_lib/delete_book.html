@@ -1,0 +1,13 @@
+{% extends 'web_lib/main.html' %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        <p>Вы точно хотите удалить книгу {{ book.title }}?</p>
+        <form method="post">
+             {% csrf_token %}
+            <a class="btn btn-sn btn-info" href={% url 'books' %}>Назад</a>
+             <button type="submit" class="btn btn-primary">Удалить</button>
+         </form>
+    </div>
+{% endblock %}
